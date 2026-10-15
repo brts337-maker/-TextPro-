@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO META TAGS -->
+    <title>TextPro — Free Online Word Counter & Text Formatter</title>
+    <meta name="description" content="Free online word counter, character count, sentence counter, and text case converter. Instant results with zero ads.">
+    <meta name="keywords" content="word counter online, character counter, uppercase to lowercase converter, text formatting tool, free writing tools">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+        .logo-text { font-size: 20px; font-weight: 700; color: var(--text-main); letter-spacing: -0.5px; }
+        .logo-text span { color: var(--primary); }
+
+        .pro-badge { background: #fef3c7; color: #d97706; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; cursor: pointer; }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .hero-section { text-align: center; margin-bottom: 25px; }
+        .hero-section h1 { font-size: 30px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .hero-section p { font-size: 15px; color: var(--text-muted); }
+
+        .tool-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .stat-card {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card h3 { font-size: 24px; color: var(--primary); margin-bottom: 4px; }
+        .stat-card p { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+        textarea {
+            width: 100%;
+            height: 220px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: border 0.2s;
+        }
+        textarea:focus { border-color: var(--primary); }
+
+        /* Action Buttons */
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: #f1f5f9;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .clear-btn { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
+        .clear-btn:hover { background: #dc2626; color: white; border-color: #dc2626; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            background: var(--card-bg);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">T</div>
+            <div class="logo-text">Text<span>Pro</span></div>
+        </div>
+        <div class="pro-badge" onclick="alert('👑 API integration & advanced grammar check coming soon for ₹99/month!')">⭐ Go Premium</div>
+    </header>
+
+    <main>
+        <div class="hero-section">
+            <h1>Free Online Word & Character Counter</h1>
+            <p>Type or paste your text below to get instant word count, characters, sentences, and formatting tools.</p>
+        </div>
+
+        <div class="tool-container">
+            <!-- Stats Dashboard -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="wordCount">0</h3>
+                    <p>Words</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="charCount">0</h3>
+                    <p>Characters</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="sentenceCount">0</h3>
+                    <p>Sentences</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="readTime">0s</h3>
+                    <p>Read Time</p>
+                </div>
+            </div>
+
+            <!-- Text Input Area -->
+            <textarea id="textInput" placeholder="Paste or type your text here..." oninput="processText()"></textarea>
+
+            <!-- Formatting & Action Buttons -->
+            <div class="button-grid">
+                <button class="action-btn" onclick="convertToUppercase()">UPPERCASE</button>
+                <button class="action-btn" onclick="convertToLowercase()">lowercase</button>
+                <button class="action-btn" onclick="convertToTitleCase()">Title Case</button>
+                <button class="action-btn" onclick="copyText()">📋 Copy Text</button>
+                <button class="action-btn clear-btn" onclick="clearText()">🗑️ Clear</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TextPro. All rights reserved. Zero-cost browser utility tool.</p>
+    </footer>
+
+    <script>
+        function processText() {
+            const text = document.getElementById('textInput').value;
+
+            // Word count calculation
+            const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+            document.getElementById('wordCount').innerText = words.length;
+
+            // Character count
+            document.getElementById('charCount').innerText = text.length;
+
+            // Sentence count (split by punctuation)
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            document.getElementById('sentenceCount').innerText = sentences.length;
+
+            // Estimated reading time (average 200 words per minute)
+            const readSeconds = Math.ceil((words.length / 200) * 60);
+            if (readSeconds < 60) {
+                document.getElementById('readTime').innerText = readSeconds + 's';
+            } else {
+                document.getElementById('readTime').innerText = Math.ceil(readSeconds / 60) + 'm';
+            }
+        }
+
+        function convertToUppercase() {
+            const ta = document.getElementById('textInput');
+            ta.value = ta.value.toUpperCase();
+            processText();
+        }
+
+        function convertToLowercase() {
+            const ta = document.getElementById('textInput');
+            ta.value = ta.value.toLowerCase();
+            processText();
+        }
+
+        function convertToTitleCase() {
+            const ta = document.getElementById('textInput');
+            ta.value = ta.value.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            processText();
+        }
+
+        function copyText() {
+            const ta = document.getElementById('textInput');
+            ta.select();
+            navigator.clipboard.writeText(ta.value);
+            alert("✅ Text copied to clipboard!");
+        }
+
+        function clearText() {
+            document.getElementById('textInput').value = '';
+            processText();
+        }
+    </script>
+</body>
+</html>
